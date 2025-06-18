@@ -15,3 +15,16 @@ app.get("/", (req, res) => {
 app.get("/about", (req, res) => {
   res.send("<p> about</p>");
 });
+
+// redirects
+app.get("about-us", (req, res) => {
+  res.redirect("/about");
+});
+// 404s
+// -> use always shots 404 page for every req but its only shown when we dont have a match
+// -> position of use is important
+app.use((req, res) => {
+  res
+    .status(404)
+    .sendfile("./CodeConcepts/views/404index.html", { root: __dirname });
+});
