@@ -12,5 +12,5 @@ module.exports = people; // only way to export a variable to another file
 
 module.exports;
 {
-  people, ages;
+  people, age;
 }
