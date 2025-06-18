@@ -25,6 +25,6 @@ app.get("about-us", (req, res) => {
 // -> position of use is important
 app.use((req, res) => {
   res
-    .status(404)
+    .status(404) //re
     .sendfile("./CodeConcepts/views/404index.html", { root: __dirname });
 });
