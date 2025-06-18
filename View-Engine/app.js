@@ -14,7 +14,7 @@ app.listen(3000, () => {
 
 app.get("/", (req, res) => {
   // rendering a view
-  res.render("index"); // correct usage (looks for views/index.ejs)
+  res.render("index", { title: "home" }); // correct usage (looks for views/index.ejs)
 });
 
 app.get("/about", (req, res) => {
