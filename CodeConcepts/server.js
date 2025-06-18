@@ -1,6 +1,7 @@
 // creating a local server using node
 
 const http = require("http");
+const fs = require("fs");
 
 const server = http.createServer((req, res) => {
   // the following code will be running at the server
@@ -10,8 +11,16 @@ const server = http.createServer((req, res) => {
 
   // writing response set header content type
   res.setHeader("Content-Type", "text/html");
-  res.write("<p>hello world</p>");
-  res.end(); //
+
+  fs.readFile("./views/index.html", (err, data) => {
+    if (err) {
+      console.log(err);
+      res.end(); // send empty response if there's an error
+    } else {
+      res.write(data);
+      res.end();
+    }
+  });
 });
 
 // the server is listening for the requests using the local host at port 3000
